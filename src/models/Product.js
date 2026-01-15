@@ -2,8 +2,21 @@ const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
-    description: { type: String, required: true },
+    productId: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+
+    name: {
+      type: String,
+      required: true,
+    },
+
+    description: {
+      type: String,
+      required: true,
+    },
 
     category: {
       type: String,
@@ -11,21 +24,48 @@ const productSchema = new mongoose.Schema(
       required: true,
     },
 
-    subCategory: { type: String, required: true },
-    style: { type: String },
-    fabric: { type: String },
-    length: { type: String },
-    work: { type: String },
-    thread: { type: String },
+    subCategory: {
+      type: String,
+      required: true,
+    },
 
-    dyeable: { type: Boolean, default: false },
-    sizeRange: { type: String },
+    style: String,
+    fabric: String,
+    length: String,
+    work: String,
+    thread: String,
 
-    stock: { type: Number, default: 0 },
-    rating: { type: Number, default: 0 },
+    dyeable: {
+      type: Boolean,
+      default: false,
+    },
 
-    images: { type: [String], default: [] },
-    tags: { type: [String], default: [] },
+    sizeRange: String,
+
+    price: {
+      type: Number,
+      required: true,
+    },
+
+    stock: {
+      type: Number,
+      default: 0,
+    },
+
+    rating: {
+      type: Number,
+      default: 0,
+    },
+
+    images: {
+      type: [String],
+      default: [],
+    },
+
+    tags: {
+      type: [String],
+      default: [],
+    },
   },
   { timestamps: true }
 );
